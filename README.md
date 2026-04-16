@@ -59,11 +59,11 @@ Gemma 3 4B inference (34 layers, 2560 hidden, 262K vocab):
 
 | Prompt | Prediction | Correct? |
 |--------|-----------|----------|
-| The capital of France is | **Paris** | ✅ |
-| The largest planet is | **Jupiter** | ✅ |
-| The color of the sky is | **blue** | ✅ |
-| Einstein was born in | **Ulm** | ✅ |
-| The currency of the UK is | **Pound** (#2) | ✅ |
+| The capital of France is | **Paris** | [YES] |
+| The largest planet is | **Jupiter** | [YES] |
+| The color of the sky is | **blue** | [YES] |
+| Einstein was born in | **Ulm** | [YES] |
+| The currency of the UK is | **Pound** (#2) | [YES] |
 
 All predictions match HuggingFace ground truth exactly.
 

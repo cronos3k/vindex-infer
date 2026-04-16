@@ -188,11 +188,11 @@ We compare our output against HuggingFace Transformers (v4.50.0) running the sam
 
 | Prompt | Our #1 (Score) | HF #1 (Score) | Match |
 |--------|---------------|---------------|-------|
-| The capital of France is | Paris (+21.24) | Paris (+21.25) | ✓ |
-| The largest planet is | Jupiter (+20.71) | Jupiter (+20.71) | ✓ |
-| The color of the sky is | blue (+23.23) | blue (+23.23) | ✓ |
-| Einstein was born in | Ulm (+30.26) | Ulm (+30.26) | ✓ |
-| The currency of the UK is | the (+22.83) [Pound #2] | the (+22.83) [Pound #2] | ✓ |
+| The capital of France is | Paris (+21.24) | Paris (+21.25) | [YES] |
+| The largest planet is | Jupiter (+20.71) | Jupiter (+20.71) | [YES] |
+| The color of the sky is | blue (+23.23) | blue (+23.23) | [YES] |
+| Einstein was born in | Ulm (+30.26) | Ulm (+30.26) | [YES] |
+| The currency of the UK is | the (+22.83) [Pound #2] | the (+22.83) [Pound #2] | [YES] |
 
 All top-20 predictions match in order, token ID, and score.
 
@@ -229,7 +229,7 @@ The Vulkan compute shader (matvec.comp) produces output matching the CPU path:
 |--------|-----------|
 | Max absolute difference | 0.000099 |
 | Mean absolute difference | 0.000007 |
-| All predictions identical | ✓ |
+| All predictions identical | [YES] |
 
 The V100 GPU path produces Paris #1 with score +21.24, matching both the CPU path and HuggingFace.
 

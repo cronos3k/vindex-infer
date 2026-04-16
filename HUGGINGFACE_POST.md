@@ -14,10 +14,10 @@ Output matches `transformers` library to 5 significant figures:
 
 | Prompt | #1 Prediction | Score | Matches HF? |
 |--------|--------------|-------|-------------|
-| The capital of France is | Paris | +21.24 | ✅ Exact |
-| The largest planet is | Jupiter | +20.71 | ✅ Exact |
-| The color of the sky is | blue | +23.23 | ✅ Exact |
-| Einstein was born in | Ulm | +30.26 | ✅ Exact |
+| The capital of France is | Paris | +21.24 | [YES] Exact |
+| The largest planet is | Jupiter | +20.71 | [YES] Exact |
+| The color of the sky is | blue | +23.23 | [YES] Exact |
+| Einstein was born in | Ulm | +30.26 | [YES] Exact |
 
 ## How to try it
 
