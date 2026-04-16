@@ -1,7 +1,7 @@
 # Framework-Free Transformer Inference from Decomposed Weight Files via Vulkan Compute
 
-**Gregor Koch**
-gk@ghmk.de
+**Gregor H. Max Koch**
+Independent Researcher
 
 **April 2026**
 
