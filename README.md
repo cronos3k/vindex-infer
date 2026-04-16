@@ -5,18 +5,29 @@
 Run any open-source LLM on any hardware — NVIDIA, AMD, Intel, Apple, or just CPU. No framework dependencies, no vendor lock-in. One Rust binary, flat weight files, exact output.
 
 ```bash
-# Extract a model (via LarQL)
-larql extract-index google/gemma-3-4b-it -o gemma3-4b.vindex --level all --f16
+# Download pre-extracted model from HuggingFace (7.3 GB)
+pip install huggingface-hub
+huggingface-cli download cronos3k/gemma-3-4b-it-vindex --local-dir gemma3-4b.vindex
 
-# Run inference — CPU (works everywhere)
-vindex-infer --vindex gemma3-4b.vindex --prompt "The capital of France is"
+# Build
+cargo build --release
+
+# Run inference — CPU (works everywhere, no GPU needed)
+./target/release/vindex-infer --vindex gemma3-4b.vindex --token-ids "818,5279,529,7001,563"
 #  1. Paris     (+21.24)
 #  2. a         (+17.69)
 #  3. the       (+17.51)
+```
 
-# Run inference — Vulkan GPU (any vendor)
-vindex-infer --vindex gemma3-4b.vindex --prompt "The capital of France is" --gpu 0
-#  Same output, 2-10× faster
+## Pre-Extracted Model
+
+A pre-extracted Gemma 3 4B vindex is available on HuggingFace for immediate testing — no LarQL installation, no model extraction, no gated access approval needed:
+
+**[cronos3k/gemma-3-4b-it-vindex](https://huggingface.co/cronos3k/gemma-3-4b-it-vindex)** (7.29 GB, f16, all extraction levels)
+
+Or extract your own from any supported model via [LarQL](https://github.com/chrishayuk/larql):
+```bash
+larql extract-index google/gemma-3-4b-it -o gemma3-4b.vindex --level all --f16
 ```
 
 ## Why This Exists
@@ -76,6 +87,29 @@ cargo build --release
 ```
 
 Requires Rust 1.75+. Vulkan GPU backend requires a Vulkan driver (no SDK needed at runtime).
+
+## Test Prompts (Gemma 3 4B Token IDs)
+
+Since vindex-infer uses token IDs directly (no tokenizer built in yet), here are some pre-tokenized prompts for testing:
+
+```bash
+# "The capital of France is" → Paris
+--token-ids "818,5279,529,7001,563"
+
+# "The largest planet is" → Jupiter
+--token-ids "818,7488,13401,563"
+
+# "The color of the sky is" → blue
+--token-ids "818,2258,529,506,7217,563"
+
+# "Einstein was born in" → Ulm
+--token-ids "147505,691,8132,528"
+
+# "The currency of the UK is" → Pound (#2)
+--token-ids "818,15130,529,506,6322,563"
+```
+
+BOS token (2) is prepended automatically.
 
 ## How It Works
 
