@@ -1,0 +1,37 @@
+[package]
+name = "vindex-infer"
+version = "0.1.0"
+edition = "2021"
+description = "Vendor-free LLM inference from decomposed weights. CPU or Vulkan GPU. No CUDA required."
+authors = ["Gregor Koch <gk@ghmk.de>"]
+license = "Apache-2.0"
+repository = "https://github.com/cronos3k/vindex-infer"
+keywords = ["llm", "inference", "vulkan", "transformer", "vindex"]
+categories = ["science", "graphics"]
+
+[dependencies]
+# Core
+memmap2 = "0.9"
+bytemuck = { version = "1.14", features = ["derive"] }
+rayon = "1.10"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+log = "0.4"
+env_logger = "0.11"
+clap = { version = "4", features = ["derive"] }
+
+# Vulkan GPU backend (optional — CPU works without it)
+ash = { version = "0.38", optional = true }
+
+[features]
+default = ["vulkan"]
+vulkan = ["ash"]
+
+[[bin]]
+name = "vindex-infer"
+path = "src/main.rs"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
