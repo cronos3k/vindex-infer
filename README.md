@@ -2,6 +2,8 @@
 
 **Vendor-free LLM inference from decomposed weights. CPU or Vulkan GPU. No CUDA required.**
 
+**Paper**: [Framework-Free Transformer Inference from Decomposed Weight Files via Vulkan Compute](https://zenodo.org/records/19609604) (Zenodo)
+
 Run any open-source LLM on any hardware — NVIDIA, AMD, Intel, Apple, or just CPU. No framework dependencies, no vendor lock-in. One Rust binary, flat weight files, exact output.
 
 ```bash
